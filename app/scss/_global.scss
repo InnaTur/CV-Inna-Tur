@@ -1,0 +1,178 @@
+html,
+body {
+	height: 100%;
+}
+
+body{
+  font-family: 'Mulish-Regular';
+  font-size: 16px;
+  line-height: 18px;
+  color: $white;
+  background-color: $bg;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+.main {
+	flex: 1 0 auto;
+}
+.footer {
+	flex: 0 0 auto;
+}
+
+.container{
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.image{
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+// h2 заголовок
+.title{
+  font-family: 'Fraunces-Regular';
+  font-size: 40px;
+  line-height: 44px;
+  position: relative;
+  padding-right: 30px;
+  display: inline-block;
+  &::after{
+    content:'';
+    position: absolute;
+    background-image: url(../images/decor/decorElement-5.svg);
+    width: 22px;
+    height: 22px;
+    top: 13px;
+    right: 0;
+  }
+
+}
+
+.subtitle{
+  text-transform: uppercase;
+  font-size: 26px;
+  line-height: 30px;
+  color: $accent;
+  margin-bottom: 30px;
+}
+
+
+.img-box{
+  position: relative;
+  &::before,
+  &::after{
+    content:'';
+    position: absolute;
+    background-size: cover;
+  }
+  &::before{
+    background-image: url(../images/decor/decorElement-3.svg);
+    width: 171px;
+    height: 170px;
+    top: -70px;
+    left: -85px;
+    z-index: -10;
+    animation: rotateOut 10s linear infinite;
+  }
+  &::after{
+    background-image: url(../images/decor/decorElement-2.svg);
+    width: 68px;
+    height: 68px;
+    right: 0;
+    bottom: -20px;
+    animation: bounce 3s infinite;
+  }
+}
+
+.decor-element--right{
+    position: relative;
+    &::after{
+      content:'';
+      position: absolute;
+      background-image: url(../images/decor/decorElement-4.png);
+      background-repeat: no-repeat;
+      background-position: right top;
+      width: 749px;
+      height: 347px;
+      top: 310px;
+      right: -200px;
+      z-index: -1;
+      transform: rotate(-90deg);
+    }
+}
+
+.decor-element--left{
+  position: relative;
+  &::after{
+    content:'';
+    position: absolute;
+    background-image: url(../images/decor/decorElement-4.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+    width: 749px;
+    height: 347px;
+    top: 100px;
+    left: -200px;
+    z-index: -1;
+    transform: rotate(90deg);
+  }
+}
+
+.back-to-top{
+  position: fixed;
+  bottom: -70px;
+  right: 30px;
+  cursor: pointer;
+  transition: 0.3s all;
+  img{
+    transform: rotate(270deg);
+  }
+}
+
+.back-to-top.active {
+  bottom: 35px;
+  animation: bounce 2s infinite;
+  transition: all 0.4s;
+}
+
+
+
+@keyframes rotateOut {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes infinitePulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
